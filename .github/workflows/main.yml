@@ -13,3 +13,18 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk --debug --split-per-abi
+
+
+    #uses: actions/checkout@v3: Sử dụng action có tên "checkout" từ repository "actions" của GitHub, phiên bản v3. Action này sẽ sao chép mã nguồn của repository đang được xây dựng vào máy chủ thực thi của GitHub Actions.
+    #
+    #uses: subosito/flutter-action@v2: Sử dụng action có tên "flutter-action" từ repository "subosito" của GitHub, phiên bản v2. Action này cung cấp các công cụ để xây dựng ứng dụng Flutter.
+    #
+    #with: channel: 'stable': Cài đặt kênh Flutter sử dụng cho công việc này là "stable". Kênh có thể được chọn là "beta", "dev" hoặc "master" tùy vào nhu cầu.
+    #
+    #run: flutter --version: In ra phiên bản của Flutter đang được sử dụng trong công việc này.
+    #
+    #run: flutter pub get: Tải về các phụ thuộc của ứng dụng từ pubspec.yaml và cài đặt chúng.
+    #
+    #run: flutter test: Chạy các bài kiểm tra đơn vị cho ứng dụng.
+    #
+    #run: flutter build apk --debug --split-per-abi: Xây dựng một file APK cho ứng dụng, sử dụng chế độ "debug" và tách thành nhiều file APK cho từng kiến trúc phần cứng khác nhau.
