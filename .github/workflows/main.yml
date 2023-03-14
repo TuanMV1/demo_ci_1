@@ -1,7 +1,7 @@
 on: push
 name: Test, Build and Release apk
 jobs:
-  build:
+  build-android:
     name: Build APK
     runs-on: ubuntu-latest
     steps:
@@ -13,4 +13,31 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk --debug --split-per-abi
-      - run: flutter build apk
+      - name: Upload APK
+          uses: actions/upload-artifact@v2
+          with:
+            name: app-debug
+            path: build/app/outputs/apk/debug/app-*.apk
+
+  build-ios:
+    name: Build iOS IPA
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - run: flutter --version
+      - run: flutter pub get
+      - run: flutter test
+      - name: Install dependencies
+        run: cd ios && pod install
+      - name: Build iOS IPA
+        run: flutter build ios --no-codesign
+        env:
+          FLUTTER_BUILD_MODE: release
+      - name: Archive
+        uses: actions/upload-artifact@v2
+        with:
+          name: ios
+          path: build/ios/archive/*.ipa
