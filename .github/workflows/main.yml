@@ -12,10 +12,10 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter test
-#      - run: flutter build apk --debug --split-per-abi
+      - run: flutter build apk --debug --split-per-abi
       - name: Create a Release APK
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
-          token: "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"
+          token: "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"
           tag: v1.0.${{ github.run_number }}
