@@ -15,9 +15,9 @@ jobs:
       - run: flutter build apk --debug --split-per-abi
       - name: Upload APK
       - uses: actions/upload-artifact@v2
-          with:
-            name: app-debug
-            path: build/app/outputs/apk/debug/app-*.apk
+        with:
+          name: app-debug
+          path: build/app/outputs/apk/debug/app-*.apk
   build-ios:
     name: Build iOS IPA
     runs-on: macos-latest
