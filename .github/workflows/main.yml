@@ -18,7 +18,6 @@ jobs:
           with:
             name: app-debug
             path: build/app/outputs/apk/debug/app-*.apk
-
   build-ios:
     name: Build iOS IPA
     runs-on: macos-latest
