@@ -17,5 +17,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
-          token: "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"
+          token: "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"
           tag: v1.0.${{ github.run_number }}
